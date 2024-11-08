@@ -23,8 +23,7 @@ on cmd _not_ powershell (!):
 ### Python
 
 - https://www.python.org/downloads/windows/ (3.12.7)
-
-pip instal reuse
+- install reuse`pip instal reuse`
 
 ---
 
