@@ -35,6 +35,10 @@ on cmd _not_ powershell (!):
 - https://aws.amazon.com/de/corretto/
 - https://developer.android.com/studio?hl=en
 
+### Useful commands
+
+- `gradlew --write-verification-metadata sha256 help --export-keys`
+
 ### Phh / Web
 
 - https://windows.php.net/download/
