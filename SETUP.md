@@ -35,7 +35,7 @@ on cmd _not_ powershell (!):
 - https://aws.amazon.com/de/corretto/
 - https://developer.android.com/studio?hl=en
 
-### Phph / Web
+### Phh / Web
 
 - https://windows.php.net/download/
 - https://getcomposer.org/download/
