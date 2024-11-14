@@ -23,12 +23,9 @@ on cmd _not_ powershell (!):
 ### Python
 
 - https://www.python.org/downloads/windows/ (3.12.7)
-- install reuse`pip instal reuse`
-
----
-
-- https://store.serif.com/en-gb/update/windows/designer/2/
-- https://store.serif.com/en-gb/update/windows/photo/2/
+- install reuse `pip instal reuse`
+- update reuse `pip install --upgrade reuse`
+- update pip `python.exe -m pip install --upgrade pip`
 
 ### Android / Java
 
@@ -53,6 +50,8 @@ on cmd _not_ powershell (!):
 
 ## General Tooling
 
+- https://store.serif.com/en-gb/update/windows/designer/2/
+- https://store.serif.com/en-gb/update/windows/photo/2/
 - https://de.libreoffice.org/download/download/
 - https://www.thunderbird.net/de/
 - https://www.mozilla.org/de/firefox/
