@@ -36,7 +36,7 @@ on cmd _not_ powershell (!):
 
 - `gradlew --write-verification-metadata sha256 help --export-keys`
 
-### Phh / Web
+### PHP / Web
 
 - https://windows.php.net/download/
 - https://getcomposer.org/download/
