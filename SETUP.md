@@ -2,6 +2,16 @@
 
 ## Development
 
+### Activate sym link support
+
+1. Enable "Developer Mode" in Windows 10/11, gives `mklink` permissions (System->Developer Mode _or_ Terminal Settings)
+2. Ensure symlinks are enabled in git with (at least) one of
+  - System setting: check the checkbox when installing msysgit
+  - Global setting: `git config --global core.symlinks true`
+  - Local setting: `git config core.symlinks true`
+
+*And not overridden by a lower level config set to false.*
+
 ### Signed git commits
 
 - https://git-scm.com/download/win
