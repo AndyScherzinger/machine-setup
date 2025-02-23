@@ -64,6 +64,7 @@ on cmd _not_ powershell (!):
 
 - https://store.serif.com/en-gb/update/windows/designer/2/
 - https://store.serif.com/en-gb/update/windows/photo/2/
+- https://github.com/marticliment/UniGetUI
 - https://de.libreoffice.org/download/download/
 - https://www.thunderbird.net/de/
 - https://www.mozilla.org/de/firefox/
@@ -73,3 +74,5 @@ on cmd _not_ powershell (!):
 - https://github.com/kee-org/keepassrpc/releases
 - https://github.com/xatupal/KeeTheme/releases
 - https://download.nextcloud.com/desktop/daily/windows/
+- `winget install Nextcloud.Talk.Beta`
+- https://docs.drone.io/cli/install/
