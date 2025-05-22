@@ -45,6 +45,7 @@ on cmd _not_ powershell (!):
 ### Useful commands
 
 - `gradlew --write-verification-metadata sha256 help --export-keys`
+- `gradlew spotbugsGplayDebug --console=plain --dependency-verification lenient -q --write-verification-metadata sha256,pgp dependencies`
 
 ### PHP / Web
 
