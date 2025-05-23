@@ -35,6 +35,8 @@ on cmd _not_ powershell (!):
 - https://www.python.org/downloads/windows/ (3.12.7)
 - install reuse `pip install reuse`
 - update reuse `pip install --upgrade reuse`
+- install zizmor (GH action checker) `pip install zizmor` (https://docs.zizmor.sh/quickstart/)
+- update zizmor `pip install --upgrade zizmor`
 - update pip `python.exe -m pip install --upgrade pip`
 
 ### Android / Java
@@ -71,7 +73,7 @@ on cmd _not_ powershell (!):
 - https://www.mozilla.org/de/firefox/
 - https://www.google.com/intl/de_de/chrome/
 - https://www.philips-hue.com/de-de/explore-hue/propositions/entertainment/sync-with-pc
-- WinDirStat
+- https://windirstat.net/download.html `winget install -e --id WinDirStat.WinDirStat`
 - https://github.com/kee-org/keepassrpc/releases
 - https://github.com/xatupal/KeeTheme/releases
 - https://download.nextcloud.com/desktop/daily/windows/
