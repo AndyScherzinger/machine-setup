@@ -25,7 +25,7 @@ on cmd _not_ powershell (!):
 - `git config --global commit.gpgsign true`
 - `git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
 
-#### Useful commands
+#### Useful git commands
 
 - all contributors: `git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf`
 - execution right on file: `git update-index --chmod=+x npm-post-build.sh`
@@ -44,10 +44,14 @@ on cmd _not_ powershell (!):
 - https://aws.amazon.com/de/corretto/
 - https://developer.android.com/studio?hl=en
 
-### Useful commands
+### Useful gradle commands
 
 - `gradlew --write-verification-metadata sha256 help --export-keys`
-- `gradlew spotbugsGplayDebug --console=plain --dependency-verification lenient -q --write-verification-metadata sha256,pgp dependencies`
+- `gradlew spotbugsDebug --console=plain --dependency-verification lenient -q --write-verification-metadata sha256,pgp dependencies --export-keys`
+
+### Useful drone commands
+
+- `drone sign nextcloud/android --save`
 
 ### PHP / Web
 
