@@ -32,7 +32,7 @@ on cmd _not_ powershell (!):
 
 ### Python
 
-- https://www.python.org/downloads/windows/ (3.12.7)
+- https://www.python.org/downloads/windows/
 - install reuse `pip install reuse`
 - update reuse `pip install --upgrade reuse`
 - install zizmor (GH action checker) `pip install zizmor` (https://docs.zizmor.sh/quickstart/)
