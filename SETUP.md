@@ -29,6 +29,7 @@ on cmd _not_ powershell (!):
 
 - all contributors: `git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf`
 - execution right on file: `git update-index --chmod=+x npm-post-build.sh`
+- cleanup checkout: `git remote prune origin` plus `git gc`
 
 ### Python
 
@@ -58,8 +59,8 @@ on cmd _not_ powershell (!):
 - https://windows.php.net/download/
 - https://getcomposer.org/download/
 - https://github.com/coreybutler/nvm-windows
-- https://gnuwin32.sourceforge.net/packages/make.htm + $PATH
 
+- https://gnuwin32.sourceforge.net/packages/make.htm + $PATH
 ### General dev tools
 
 - https://getgreenshot.org/downloads/
