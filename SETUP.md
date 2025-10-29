@@ -59,14 +59,15 @@ on cmd _not_ powershell (!):
 - https://windows.php.net/download/
 - https://getcomposer.org/download/
 - https://github.com/coreybutler/nvm-windows
-
 - https://gnuwin32.sourceforge.net/packages/make.htm + $PATH
+
 ### General dev tools
 
 - https://getgreenshot.org/downloads/
 - https://winmerge.org/downloads/
 - Peek Screen recoder (via app store)
 - `winget install --id Microsoft.DevHome -e` for https://github.com/microsoft/devhome
+- Update winget, get latest `.msixbundle` from https://github.com/microsoft/winget-cli/releases/
 
 ## General Tooling
 
