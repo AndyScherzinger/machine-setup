@@ -48,6 +48,7 @@ on cmd _not_ powershell (!):
 ### Useful gradle commands
 
 - `gradlew --write-verification-metadata sha256 help --export-keys`
+- `gradle --console=plain --no-build-cache --dependency-verification lenient -q --write-verification-metadata sha256,pgp dependencies --export-keys`
 - `gradlew spotbugsDebug --console=plain --dependency-verification lenient -q --write-verification-metadata sha256,pgp dependencies --export-keys`
 
 ### Useful drone commands
