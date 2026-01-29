@@ -23,7 +23,7 @@ on cmd _not_ powershell (!):
 - `gpg --import secret.gpg`
 - `git config --global user.signingkey <key>`
 - `git config --global commit.gpgsign true`
-- `git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
+- `git config --global gpg.program "C:\Program Files\GnuPG\bin\gpg.exe"`
 
 #### Useful git commands
 
