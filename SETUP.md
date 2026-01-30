@@ -66,9 +66,12 @@ on cmd _not_ powershell (!):
 
 - https://getgreenshot.org/downloads/
 - https://winmerge.org/downloads/
+- https://github.com/suzuki-shunsuke/pinact (GH action pinning)
+- https://docs.zizmor.sh/quickstart/ (GH action scanning/fixing)
 - Peek Screen recoder (via app store)
 - `winget install --id Microsoft.DevHome -e` for https://github.com/microsoft/devhome
 - Update winget, get latest `.msixbundle` from https://github.com/microsoft/winget-cli/releases/
+
 
 ## General Tooling
 
