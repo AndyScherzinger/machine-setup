@@ -40,6 +40,8 @@ on cmd _not_ powershell (!):
 - update zizmor `pip install --upgrade zizmor`
 - update pip `python.exe -m pip install --upgrade pip`
 
+*Run the above commands after initial app installation setup via UniGet*
+
 ### Android / Java
 
 - https://aws.amazon.com/de/corretto/
