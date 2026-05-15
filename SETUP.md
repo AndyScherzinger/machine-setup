@@ -56,6 +56,17 @@ on cmd _not_ powershell (!):
 ### Useful drone commands
 
 - `drone sign nextcloud/android --save`
+- `drone sign nextcloud/talk-android --save`
+
+### Useful web dev commands
+
+- `npm install`
+- `npm run dev`
+- `composer install --no-dev`
+- `docker compose down -v`
+- `docker compose up -d nextcloud`
+- `cd ../../../..`
+- `cd workspace/server/apps-extra/`
 
 ### PHP / Web
 
