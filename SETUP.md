@@ -85,7 +85,6 @@ on cmd _not_ powershell (!):
 - `winget install --id Microsoft.DevHome -e` for https://github.com/microsoft/devhome
 - Update winget, get latest `.msixbundle` from https://github.com/microsoft/winget-cli/releases/
 
-
 ## General Tooling
 
 - https://store.serif.com/en-gb/update/windows/designer/2/
