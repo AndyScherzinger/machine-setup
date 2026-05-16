@@ -67,6 +67,7 @@ on cmd _not_ powershell (!):
 - `docker compose up -d nextcloud`
 - `cd ../../../..`
 - `cd workspace/server/apps-extra/`
+- `sudo apt-get update && sudo apt-get upgrade`
 
 ### PHP / Web
 
