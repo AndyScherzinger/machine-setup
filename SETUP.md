@@ -60,8 +60,20 @@ on cmd _not_ powershell (!):
 
 ### Useful web dev commands
 
+- `git clone https://github.com/juliusknorr/nextcloud-docker-dev`
+- `cd nextcloud-docker-dev`
+- `./bootstrap.sh`
+
+---
+
+- `sudo apt-get install -y php8.3-xml`
+- `sudo apt-get install -y php8.3-gd`
+- `sudo apt-get install -y php8.3-ext-gd`
+- `sudo apt install composer`
+- `sudo apt install npm`
 - `npm install`
 - `npm run dev`
+- `composer install`
 - `composer install --no-dev`
 - `docker compose down -v`
 - `docker compose up -d nextcloud`
