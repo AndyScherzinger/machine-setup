@@ -30,6 +30,7 @@ on cmd _not_ powershell (!):
 - all contributors: `git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf`
 - execution right on file: `git update-index --chmod=+x npm-post-build.sh`
 - cleanup checkout: `git remote prune origin` plus `git gc`
+- push tag: `git push releases tag <tag_name>` with `releases` being the nc-releases org/repo
 
 ### Python
 
