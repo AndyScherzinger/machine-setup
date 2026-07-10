@@ -104,6 +104,94 @@ Fix docker checkout for all branches accessible:
 - `winget install --id Microsoft.DevHome -e` for https://github.com/microsoft/devhome
 - Update winget, get latest `.msixbundle` from https://github.com/microsoft/winget-cli/releases/
 
+### Composer, CycloneDX & parlay CLIs
+
+Command-line dependency tooling: `composer` (PHP), `cyclonedx-npm`,
+the `cyclonedx` .NET CLI, and `parlay`. Prereqs covered above: PHP
+(winget `PHP.PHP.8.5`), Node/npm, `jq` (`D:\Tools\jq`). No .NET SDK and no
+Go toolchain are required — the `cyclonedx` CLI and `parlay` ship prebuilt
+native binaries. Install layout mirrors `jq`: one folder per tool under
+`D:\Tools\`. Verified 2026-07-10 with composer 2.10.2, cyclonedx-php-composer
+6.2.0, cyclonedx-npm 6.0.0, cyclonedx CLI 0.32.0, parlay 0.11.0.
+
+1. PHP config (Composer needs the `openssl`, `zip`, `curl`, `mbstring`,
+   `fileinfo` extensions; the winget PHP loads no `php.ini` by default). Create
+   a standalone config dir and point PHP at it with `PHPRC`:
+
+   ```powershell
+   $phpDir = Split-Path (Get-Command php).Source
+   $cfg = 'D:\Tools\php-config'; New-Item -ItemType Directory -Force $cfg | Out-Null
+   @"
+   extension_dir = "$phpDir\ext"
+   extension=openssl
+   extension=zip
+   extension=curl
+   extension=mbstring
+   extension=fileinfo
+   memory_limit = -1
+   "@ | Set-Content "$cfg\php.ini" -Encoding utf8
+   # verify: php -m should now list openssl, zip, curl, mbstring, fileinfo
+   ```
+
+2. Composer (+ optional CycloneDX PHP plugin; the plugin is blocked until
+   allow-listed):
+
+   ```powershell
+   $env:PHPRC = 'D:\Tools\php-config'
+   $dst = 'D:\Tools\composer'; New-Item -ItemType Directory -Force $dst | Out-Null
+   iwr https://getcomposer.org/installer -OutFile "$dst\composer-setup.php"
+   php "$dst\composer-setup.php" --install-dir="$dst" --filename=composer.phar
+   Remove-Item "$dst\composer-setup.php"
+   php "$dst\composer.phar" global config --no-plugins allow-plugins.cyclonedx/cyclonedx-php-composer true
+   php "$dst\composer.phar" global require cyclonedx/cyclonedx-php-composer
+   ```
+
+   To call `composer` from git-bash, add a wrapper (no extension) it can exec;
+   add a `composer.bat` for cmd/pwsh:
+
+   ```powershell
+   "#!/usr/bin/env bash`nexport PHPRC=`"D:/Tools/php-config`"`nexec php `"D:/Tools/composer/composer.phar`" `"`$@`"" `
+     -replace "`r`n","`n" | Set-Content -NoNewline 'D:\Tools\composer\composer' -Encoding ascii
+   "@echo off`r`nphp `"%~dp0composer.phar`" %*" | Set-Content 'D:\Tools\composer\composer.bat' -Encoding ascii
+   ```
+
+3. cyclonedx-npm (global npm package): `npm install -g @cyclonedx/cyclonedx-npm`
+
+4. cyclonedx CLI — native binary, no .NET SDK:
+
+   ```powershell
+   $dst = 'D:\Tools\cyclonedx'; New-Item -ItemType Directory -Force $dst | Out-Null
+   $a = (irm https://api.github.com/repos/CycloneDX/cyclonedx-cli/releases/latest).assets |
+        Where-Object name -eq 'cyclonedx-win-x64.exe'
+   iwr $a.browser_download_url -OutFile "$dst\cyclonedx.exe"
+   ```
+
+5. parlay — native Go binary, no Go toolchain:
+
+   ```powershell
+   $dst = 'D:\Tools\parlay'; New-Item -ItemType Directory -Force $dst | Out-Null
+   $a = (irm https://api.github.com/repos/snyk/parlay/releases/latest).assets |
+        Where-Object { $_.name -match 'Windows_x86_64\.zip$' } | Select-Object -First 1
+   iwr $a.browser_download_url -OutFile "$dst\parlay.zip"
+   Expand-Archive "$dst\parlay.zip" $dst -Force
+   ```
+
+6. Make them permanent — set `PHPRC` and add the tool dirs to the User `PATH`
+   (idempotent; no admin needed), **then open a new terminal** — the change only
+   applies to shells started afterwards. git-bash inherits the Windows User
+   `PATH`, so a fresh git-bash picks the tools up too.
+
+   ```powershell
+   [Environment]::SetEnvironmentVariable('PHPRC','D:\Tools\php-config','User')
+   $p = [Environment]::GetEnvironmentVariable('Path','User').TrimEnd(';')
+   foreach ($d in 'D:\Tools\composer','D:\Tools\cyclonedx','D:\Tools\parlay') {
+     if ($p.Split(';') -notcontains $d) { $p += ";$d" }
+   }
+   [Environment]::SetEnvironmentVariable('Path',$p,'User')
+   ```
+
+   Verify in the new shell: `composer --version; cyclonedx --version; cyclonedx-npm --version; parlay --version; jq --version`
+
 ## General Tooling
 
 - https://store.serif.com/en-gb/update/windows/designer/2/
