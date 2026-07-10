@@ -82,6 +82,11 @@ on cmd _not_ powershell (!):
 - `cd workspace/server/apps-extra/`
 - `sudo apt-get update && sudo apt-get upgrade`
 
+Fix docker checkout for all branches accessible:
+
+- `git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'`
+- `git fetch --all`
+
 ### PHP / Web
 
 - https://windows.php.net/download/
