@@ -81,6 +81,7 @@ on cmd _not_ powershell (!):
 - `cd ../../../..`
 - `cd workspace/server/apps-extra/`
 - `sudo apt-get update && sudo apt-get upgrade`
+- `docker compose exec nextcloud occ background-job:list --class 'OCA\ShareReview\BackgroundJob\GenerateReportJob'`
 
 Fix docker checkout for all branches accessible:
 
