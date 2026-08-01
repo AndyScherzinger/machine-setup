@@ -87,6 +87,7 @@ Fix docker checkout for all branches accessible:
 
 - `git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'`
 - `git fetch --all`
+- `git submodule update --recursive --remote`
 
 ### PHP / Web
 
