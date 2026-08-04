@@ -89,6 +89,10 @@ Fix docker checkout for all branches accessible:
 - `git fetch --all`
 - `git submodule update --recursive --remote`
 
+Activte debug:
+
+- `docker compose exec --user www-data nextcloud php occ config:system:set loglevel --value 0 --type integer`
+
 ### PHP / Web
 
 - https://windows.php.net/download/
