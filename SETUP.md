@@ -30,7 +30,33 @@ on cmd _not_ powershell (!):
 - all contributors: `git log --format='%aN <%aE>' | LC_ALL=C.UTF-8 sort -uf`
 - execution right on file: `git update-index --chmod=+x npm-post-build.sh`
 - cleanup checkout: `git remote prune origin` plus `git gc`
+- delete local branches gone on the remote: `git prune-gone` (global alias, see [Git aliases](#git-aliases))
 - push tag: `git push releases tag <tag_name>` with `releases` being the nc-releases org/repo
+
+### Git aliases
+
+Global aliases live in `~/.gitconfig`, so they work in every repo and every shell
+(PowerShell, cmd, git-bash) without any shell profile setup. `!` aliases run through
+git's bundled sh, so Unix tools like `awk` and `xargs` are available even when
+invoked from PowerShell.
+
+`git prune-gone` — prunes stale remote-tracking refs, then deletes all local
+branches whose upstream is `[gone]` (branch deleted on the remote, e.g. after a
+merged PR). Uses `git branch -d`, so only branches git considers merged are
+deleted — squash-merged branches must be removed manually with `git branch -D`.
+
+Added via (git-bash):
+
+```bash
+git config --global alias.prune-gone '!git fetch --prune && git for-each-ref --format '\''%(refname:short) %(upstream:track)'\'' refs/heads | awk '\''$2 == "[gone]" {print $1}'\'' | xargs -r git branch -d'
+```
+
+Resulting entry in `~/.gitconfig` (can also be pasted there directly instead):
+
+```ini
+[alias]
+    prune-gone = "!git fetch --prune && git for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -d"
+```
 
 ### Python
 
